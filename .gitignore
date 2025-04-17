@@ -1,0 +1,6 @@
+.env
+.idea
+fabrica
+infra
+venv
+__pycache__

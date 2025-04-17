@@ -1,0 +1,8 @@
+argparse
+asyncio
+async-timeout # see Issue 161
+dbus-python
+emoji
+markdown
+PyGObject==3.42.2 # for controller.py:from gi.repository import GLib
+uuid

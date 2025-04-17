@@ -1,0 +1,18 @@
+services:
+  jami-cli:
+    container_name: jami-cli
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: no
+    userns_mode: keep-id:uid=1000
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    entrypoint: /bin/bash
+    security_opt:
+      - apparmor:unconfined
+    environment:
+      - DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+      #- DBUS_SESSION_BUS_ADDRESS="$DBUS_SESSION_BUS_ADDRESS"
+    volumes:
+      - /run/user/1000/bus:/run/user/1000/bus
